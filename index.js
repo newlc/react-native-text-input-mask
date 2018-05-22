@@ -49,12 +49,12 @@ export default class TextInputMask extends Component {
     return (<TextInput
       {...this.props}
       //value={undefined}
-      // ref={ref => {
-//         this.input = ref
-//         if (typeof this.props.refInput === 'function') {
-//           this.props.refInput(ref)
-//         }
-//       }}
+      ref={ref => {
+        this.input = ref
+        if (typeof this.props.refInput === 'function') {
+          this.props.refInput(ref)
+        }
+      }}
       onChangeText={masked => {
         if (this.props.mask) {
           const _unmasked = unmask(this.props.mask, masked, unmasked => {
